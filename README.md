@@ -4,10 +4,10 @@ Fundamentos de Computacion III (ISI - 2026-2)
 
 ## Integrantes
 
-- _Nevarez Figueroa Iaac Fernando_
-- _Ramirez Bautista Hiram Mohamed_
-- _Robles Robles Miguel Angel_
-- _Sanchez Cordova Jose Daniel_
+- Nevarez Figueroa Isaac Fernando
+- Ramirez Bautista Hiram Mohamed
+- Robles Robles Miguel Angel
+- Sanchez Cordova Jose Daniel
 
 ## Programas (Java)
 
@@ -19,15 +19,15 @@ Fundamentos de Computacion III (ISI - 2026-2)
 Actividad 1:
 
 ```
-javac EvaluadorExpresiones.java
-java EvaluadorExpresiones
+javac Evaluador/Evaluador.java
+java Evaluador.Evaluador
 ```
 
 Actividad 2:
 
 ```
-javac Operacion.java SimuladorBancario.java
-java SimuladorBancario
+javac Banco/Operacion.java Banco/Banco.java
+java Banco.Banco
 ```
 
 ## Estructuras usadas
