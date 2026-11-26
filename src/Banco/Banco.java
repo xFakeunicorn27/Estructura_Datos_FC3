@@ -27,6 +27,21 @@ public class Banco {
     }
 
     // (Miguel)
+    public void mostrarHistorial() {
+        if (historial.isEmpty()) {
+            System.out.println("No hay operaciones en el historial.");
+            return;
+        }
+    
+        System.out.println("Historial de operaciones:");
+    
+        for (Operacion op : historial) {
+            System.out.println(op);
+        }
+    }
+
+
+    // (Miguel)
     public void deshacerUltima() {
         if (procesadas.isEmpty()) {
             System.out.println("No hay operaciones para deshacer");
