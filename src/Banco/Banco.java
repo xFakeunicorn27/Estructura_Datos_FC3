@@ -16,14 +16,56 @@ public class Banco {
 
     // (Daniel)
     public void registrar(Operacion.Tipo tipo, double monto) {
-    }
+        if (monto <= 0) {
+            System.out.println("El monto debe ser mayor a 0.");
+            return;
+        }
+
+        Operacion op = new Operacion(siguienteId++, tipo, monto);
+        pendientes.offer(op);
+        historial.add(op);
+
+        System.out.println("Operacion registrada (pendiente): " + op);
+}
 
     // (Daniel)
     public void procesarSiguiente() {
+        Operacion op = pendientes.poll();
+        if (op == null) {
+            System.out.println("No hay operaciones pendientes.");
+            return;
+        }
+
+        if (op.getTipo() == Operacion.Tipo.DEPOSITO) {
+            saldo += op.getMonto();
+            op.setEstado(Operacion.Estado.PROCESADA);
+            procesadas.push(op);
+            System.out.println("Deposito realizado: " + op);
+        } else {
+            if (saldo >= op.getMonto()) {
+                saldo -= op.getMonto();
+                op.setEstado(Operacion.Estado.PROCESADA);
+                procesadas.push(op);
+                System.out.println("Retiro realizado: " + op);
+            } else {
+                op.setEstado(Operacion.Estado.RECHAZADA);
+                System.out.println("Retiro rechazado por fondos insuficientes: " + op);
+            }
+        }
+        consultarSaldo();
     }
 
     // (Daniel)
     public void mostrarPendientes() {
+        if (pendientes.isEmpty()) {
+            System.out.println("No hay operaciones pendientes.");
+            return;
+        }
+
+        System.out.println("Operaciones pendientes:");
+        for (Operacion op : pendientes) {
+            System.out.println(op);
+        }
     }
 
     // (Miguel)
